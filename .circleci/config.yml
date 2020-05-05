@@ -1,0 +1,37 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  sync-github-with-gitlabci:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - add_ssh_keys:
+                fingerprints:
+                  - "00:0a:2c:2d:e7:6d:73:62:e3:ec:fe:47:ef:ac:58:d6"
+            - run: echo -e "Host gitlab.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+            - run: ls
+            - run: git remote add gitlabci git@gitlab.com:abdoulayeke12/cv-keita-abdoulaye.git
+            - run: git fetch --all
+            - run: git status
+            - run: git log --all --decorate --oneline --graph
+            - run: git branch --all
+            - run: git checkout gitlabci/master
+            - run: git config --global user.email "circleci@abdoulk12" && git config --global user.name "CIRCLE CI ABDOULK12"
+            - run: git log --all --decorate --oneline --graph
+  build-and-test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm test
+workflows:
+    sync-github-with-gitlabci:
+      jobs:
+        - sync-github-with-gitlabci
