@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
         - name: "Run gitlab mirror"
-        - command: curl --request POST --header "PRIVATE-TOKEN: ${private_token}" https://gitlab.com/api/v4/projects/abdoulayeke12%2Fcv-with-react/mirror/pull
+        - command: curl --request POST --header 'PRIVATE-TOKEN: ${private_token}' https://gitlab.com/api/v4/projects/abdoulayeke12%2Fcv-with-react/mirror/pull
       - node/with-cache:
           steps:
             - add_ssh_keys:
