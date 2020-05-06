@@ -12,7 +12,7 @@ jobs:
           command: echo ${GITLAB_RUN_SYNC}
       - run: # launch gitlab sync
           name: " Sync Gitlb"
-          command: curl https://gitlab.com/api/v4/projects/abdoulayeke12%2Fcv-with-react/mirror/pull?private_token=${GITLAB_RUN_SYNC}
+          command: curl --request POST https://gitlab.com/api/v4/projects/abdoulayeke12%2Fcv-with-react/mirror/pull?private_token=${GITLAB_RUN_SYNC}
       - node/with-cache:
           steps:
             - add_ssh_keys:
