@@ -10,7 +10,9 @@ jobs:
       - run: # print the name of= the branch we're on
           name: "What branch am I on?"
           command: echo ${CIRCLE_BRANCH}
-      - run: curl https://gitlab.com/api/v4/projects/abdoulayeke12%2Fcv-with-react/mirror/pull?private_token="${private_token}"
+      - run: # launch gitlab sync
+          name: " Sync Gitlb"
+          command: curl https://gitlab.com/api/v4/projects/abdoulayeke12%2Fcv-with-react/mirror/pull?private_token=${private_token}
       - node/with-cache:
           steps:
             - add_ssh_keys:
