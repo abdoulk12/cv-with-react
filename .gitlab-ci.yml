@@ -1,8 +1,7 @@
-image: node:10
-
 build:
   stage: build
   tags:
     - abdoulk12_raspberry
   script:
     - ls -lart
+    - df -h
