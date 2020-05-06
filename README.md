@@ -1,7 +1,7 @@
 # This is a my CV created with REACT
 
 ## GOAL
-```The goal of this repository is to create ! ```
+```The goal of this repository is to create my CV develloped with REACT and deployed automatically in production ! ```
 
 ## TECHNOLOGIES
 ```
