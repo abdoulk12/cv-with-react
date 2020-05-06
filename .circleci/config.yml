@@ -7,9 +7,6 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - run:
-        - name: "Run gitlab mirror"
-        - command: curl https://gitlab.com/api/v4/projects/abdoulayeke12%2Fcv-with-react/mirror/pull?private_token=${private_token}
       - node/with-cache:
           steps:
             - add_ssh_keys:
@@ -17,6 +14,7 @@ jobs:
                   - "00:0a:2c:2d:e7:6d:73:62:e3:ec:fe:47:ef:ac:58:d6"
             - run: echo -e "Host gitlab.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
             - run: ls
+            - run: curl https://gitlab.com/api/v4/projects/abdoulayeke12%2Fcv-with-react/mirror/pull?private_token=${private_token}
   build-and-test:
     executor:
       name: node/default
