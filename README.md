@@ -25,5 +25,13 @@ sudo dpkg -i gitlab-runner_armhf.deb
 gitlab-runner register
 sudo service gitlab-runner start
 
-For information from https://docs.gitlab.com/runner/install/docker.html ===> Note: No arm/arm64 images are provided for GitLab Runner. See the related issue for more information. If needed, you can install arm/arm64 versions manually via binary file.
+
+
+```
+
+#### Usefull informations:
+```
+https://docs.gitlab.com/runner/install/docker.html ===> Note: No arm/arm64 images are provided for GitLab Runner. See the related issue for more information. If needed, you can install arm/arm64 versions manually via binary file.
+
+https://docs.gitlab.com/ee/ci/quick_start/ ===> Note: If you have a mirrored repository where GitLab pulls from, you may need to enable pipeline triggering in your project’s Settings > Repository > Pull from a remote repository > Trigger pipelines for mirror updates.
 ```
