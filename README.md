@@ -2,6 +2,7 @@
 
 ## GOAL
 ```The goal of this repository is to create my CV develloped with REACT and deployed automatically in production ! ```
+![Kiku](readme/img/application_flow.png)
 
 ## TECHNOLOGIES
 ```
