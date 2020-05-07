@@ -35,3 +35,6 @@ https://docs.gitlab.com/runner/install/docker.html ===> Note: No arm/arm64 image
 
 https://docs.gitlab.com/ee/ci/quick_start/ ===> Note: If you have a mirrored repository where GitLab pulls from, you may need to enable pipeline triggering in your project’s Settings > Repository > Pull from a remote repository > Trigger pipelines for mirror updates.
 ```
+
+#### How to deal with semantical versioning?
+
