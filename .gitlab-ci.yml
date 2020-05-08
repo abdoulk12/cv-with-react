@@ -6,3 +6,4 @@ build:
     - ls -lart
     - df -h
     - docker ps -a
+    - ./scripts/deploy_application.sh
