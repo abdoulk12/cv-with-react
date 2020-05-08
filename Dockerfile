@@ -1,9 +1,5 @@
-FROM node:10
-
-# Create app directory
-WORKDIR /usr/src/app
+FROM node:14-slim
 
 # Bundle app source
-COPY . .
-RUN npm install
-CMD [ "npm", "start" ]
+COPY ./package.json /usr/src/app/
+RUN cd /usr/src/app && npm install

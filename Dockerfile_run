@@ -1,0 +1,5 @@
+FROM aboulk12/node-web-app
+
+# Bundle app source
+COPY . /usr/src/app
+CMD  cd /usr/src/app && npm start
