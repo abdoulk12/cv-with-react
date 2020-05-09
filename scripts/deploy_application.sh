@@ -57,3 +57,4 @@ fi
 
 rm -rf ./* #cleanup the workspace!
 rm -rfv ./.* 2>/dev/null
+docker system prune -fa
