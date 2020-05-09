@@ -2,8 +2,11 @@
 
 set -e
 
+latest_commit_message=$(git log -1 --pretty=%B)
+echo "$latest_commit_message"
+
 if [[ $(arch) == armv7l ]]; then 
-  [[ $latest_commit_message != "Bump from gitlab to version "* ]] && echo "nothing to do!" && exit 0
+  [[ $latest_commit_message == "Bump from gitlab to version "* ]] && echo "nothing to do!" && exit 0
   aplication_name="cv-with-react-run-$(arch)"
   dockerfile="Dockerfile_run_armv7l"
 else
@@ -36,7 +39,6 @@ docker run -p 8080:3000 -d "aboulk12/$aplication_name:$application_version" -nam
 
 # Bump semantical version
 # Backup the application on docker hub registry
-latest_commit_message=$(git log -1 --pretty=%B)
 echo "$latest_commit_message"
 if [[ $latest_commit_message != "Bump from gitlab to version "* ]]; then
   npm version minor -m "Bump from gitlab to version %s"
