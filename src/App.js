@@ -8,7 +8,7 @@ import education from "./education";
 import SkillsList from "./SkillsList";
 
 const info = {
-  imgSrc: "./FotoPL.png",
+  imgSrc: "./Photo.jpg",
   name: "KEITA Abdoulaye",
   profession: "DevOps Engineer and technical validator",
   address: "Antibes (France)",
