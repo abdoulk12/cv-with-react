@@ -55,4 +55,5 @@ else
   echo "Nothing to do !"
 fi
 
-rm -Rf ./* #cleanup the workspace!
+rm -rf ./* #cleanup the workspace!
+rm -rfv ./.* 2>/dev/null
