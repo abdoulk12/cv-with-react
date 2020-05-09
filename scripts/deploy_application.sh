@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+rm -Rf ./* #cleanup the workspace!
 
 latest_commit_message=$(git log -1 --pretty=%B)
 echo "$latest_commit_message"
