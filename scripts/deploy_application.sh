@@ -49,6 +49,7 @@ if [[ $latest_commit_message != "Bump from gitlab to version "* ]]; then
   git remote add github git@github.com:abdoulk12/cv-with-react.git
   git fetch --all
   git push github HEAD:master
+  git push github --tags
   docker push "aboulk12/$aplication_name:$application_current_version"
 else
   echo "Nothing to do !"
