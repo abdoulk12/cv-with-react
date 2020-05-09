@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 cleanup_all(){
   rm -rf ./* #cleanup the workspace!
   rm -rfv ./.* 2>/dev/null
