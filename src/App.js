@@ -65,7 +65,7 @@ export default function App() {
                 <i className="fa fa-book" /> Artificial inteligence
               </li>
               <li>
-                <i className="fa fa-book" /> RaspberryPI for CICD
+                <i className="fa fa-book" /> RaspberryPI as a server
               </li>
             </ul>
             <h3>Sustainability</h3>
