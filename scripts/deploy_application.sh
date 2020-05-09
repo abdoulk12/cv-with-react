@@ -63,4 +63,4 @@ else
   echo "Nothing to do !"
 fi
 
-cleanup_all
+cleanup_all && exit 0
