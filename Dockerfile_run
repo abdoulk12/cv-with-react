@@ -1,4 +1,4 @@
-FROM aboulk12/node-web-app
+FROM aboulk12/cv-with-react-run
 
 # Bundle app source
 COPY . /usr/src/app
