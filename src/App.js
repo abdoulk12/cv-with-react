@@ -10,12 +10,12 @@ import SkillsList from "./SkillsList";
 const info = {
   imgSrc: "./FotoPL.png",
   name: "KEITA Abdoulaye",
-  profession: "DevOps Engineer",
+  profession: "DevOps Engineer and technical validator",
   address: "Antibes (France)",
   phone: "(+33) 762973555",
   email: "abdoulk12@hotmail.fr",
   about:
-    "Experience in project coordination, team and customer management. What I've loved most of every job I've had is established new networks based on trust, because it makes everything thrive. My current focus is to become a Web Developer and an E-Commerce expert."
+    "I love new chalenges, would like to learn more about DevOps and share my knowledge."
 };
 
 export default function App() {
@@ -87,7 +87,8 @@ export default function App() {
         <i className="fa fa-facebook-square" />
         <i className="fa fa-instagram" />
         <i className="fa fa-github" />
-        <i className="fa fa-linkedin-in" />- Foocoding assigment: Resume
+        github
+        <i className="fa fa-linkedin-in" /> Curriculum vitæ: Resume
       </footer>
     </div>
   );

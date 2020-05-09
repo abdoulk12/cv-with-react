@@ -1,27 +1,19 @@
 const experience = [
   {
-    id: 3,
-    startDate: "Sep 2019",
-    endDate: "current",
-    title: "Online-shop Owner / Olivias Garderob",
-    description:
-      "Online vintage and preloved clothing store for chic and sustainable women <https://oliviasgarderob.com/>",
-    image: "./ropa-portada.png"
-  },
-  {
     id: 2,
-    startDate: "Sep 2018",
-    endDate: "Jun 2019",
-    title: "Key Accout Manager Spain (Intern) / Renjer Snacks AB",
+    startDate: "November 2015",
+    endDate: "March 2020",
+    title: "DevOps for Travel Intelligence at Amadeus(Nice Area, France) ",
     description:
-      "Responsible for identify and contact new potential clients in Spain (unexplored market for the company)",
+      "Amadeus Travel Intelligence division brings insights and recommendations to customers, partners and travellers by relying on Big Data Technologies. \nMy purpose as a DevOps is to ensure: \n    - System stability and resilience (zabbix, elk, alerting, monitoring...) \n - Ease and reproducibility of deployment (puppet, chef...) \n - Put in place CI/CD pipelines and provide support for development and applications teams (Jenkins, git, bitbucket, artifactory...) \n - Support deployment of Hadoop Clusters (Cloudera, HDFS, Spark, Kafka, Hive, Impala, ...)",
     image: "./renjer.png"
   },
   {
     id: 1,
-    startDate: "April 2013",
-    endDate: "March 2017",
-    title: "Entrepreneurship Manager / Women's Business Club S.A",
+    startDate: "Octobre 2014",
+    endDate: "Octobre 2015",
+    title:
+      "Alt. Ingénieur développement. Groupe Numericable-SFR  69500, Bron, Auvergne-Rhône-Alpes ",
     description:
       "In charge of the implementation and operation of the first business accelerator in Latin America for female entrepreneurs .",
     image:
