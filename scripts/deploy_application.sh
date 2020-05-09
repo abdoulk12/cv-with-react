@@ -38,11 +38,11 @@ fi
 
 # Deploy the application (code from git +  react js activated in docker)
 application_current_version=$(jq -r .version package.json)
-docker build -t ""$dockerhub_user_account"/$aplication_name:latest" -f "$dockerfile" .
-docker tag ""$dockerhub_user_account"/$aplication_name:latest" ""$dockerhub_user_account"/$aplication_name:$application_current_version"
+docker build -t "$dockerhub_user_account/$aplication_name:latest" -f "$dockerfile" .
+docker tag ""$dockerhub_user_account"/$aplication_name:latest" "$dockerhub_user_account/$aplication_name:$application_current_version"
 [[ $(docker ps -aq -f status=running -f name=$aplication_name) ]] &&  docker stop "$aplication_name"
 [[ $(docker ps -aq -f status=exited -f name=$aplication_name) ]] && docker rm "$aplication_name"
-docker run --name "$aplication_name" -p 8080:3000 -d ""$dockerhub_user_account"/$aplication_name:$application_current_version"
+docker run --name "$aplication_name" -p 8080:3000 -d "$dockerhub_user_account/$aplication_name:$application_current_version"
 
 # Bump semantical version
 # Backup the application on docker hub registry
