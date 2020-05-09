@@ -8,6 +8,7 @@ cleanup_all(){
 }
 
 latest_commit_message=$(git log -1 --pretty=%B)
+dockerhub_user_account=abdoulk12
 echo "$latest_commit_message"
 
 if [[ $(arch) == armv7l ]]; then 
@@ -37,11 +38,11 @@ fi
 
 # Deploy the application (code from git +  react js activated in docker)
 application_current_version=$(jq -r .version package.json)
-docker build -t "aboulk12/$aplication_name:latest" -f "$dockerfile" .
-docker tag "aboulk12/$aplication_name:latest" "aboulk12/$aplication_name:$application_current_version"
+docker build -t ""$dockerhub_user_account"/$aplication_name:latest" -f "$dockerfile" .
+docker tag ""$dockerhub_user_account"/$aplication_name:latest" ""$dockerhub_user_account"/$aplication_name:$application_current_version"
 [[ $(docker ps -aq -f status=running -f name=$aplication_name) ]] &&  docker stop "$aplication_name"
 [[ $(docker ps -aq -f status=exited -f name=$aplication_name) ]] && docker rm "$aplication_name"
-docker run --name "$aplication_name" -p 8080:3000 -d "aboulk12/$aplication_name:$application_current_version"
+docker run --name "$aplication_name" -p 8080:3000 -d ""$dockerhub_user_account"/$aplication_name:$application_current_version"
 
 # Bump semantical version
 # Backup the application on docker hub registry
@@ -52,12 +53,12 @@ if [[ $latest_commit_message != "Bump from gitlab to version "* ]]; then
   application_version=$(jq -r .version package.json)
   #git commit -m "Bump from gitlab to version $application_version"
   echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  git remote add github git@github.com:abdoulk12/cv-with-react.git
+  git remote add github "git@github.com:$dockerhub_user_account/cv-with-react.git"
   git fetch --all
   git push github HEAD:master
   git push github --tags
-  docker push "aboulk12/$aplication_name:latest"
-  docker push "aboulk12/$aplication_name:$application_current_version"
+  docker push "$dockerhub_user_account/$aplication_name:latest"
+  docker push "$dockerhub_user_account/$aplication_name:$application_current_version"
 else
   echo "Nothing to do !"
 fi
