@@ -3,6 +3,7 @@
 set -e
 
 if [[ $(arch) == armv7l ]]; then 
+  [[ $latest_commit_message != "Bump from gitlab to version "* ]] && echo "nothing to do!" && exit 0
   aplication_name="cv-with-react-run-$(arch)"
   dockerfile="Dockerfile_run_armv7l"
 else
@@ -39,13 +40,13 @@ latest_commit_message=$(git log -1 --pretty=%B)
 echo "$latest_commit_message"
 if [[ $latest_commit_message != "Bump from gitlab to version "* ]]; then
   npm version minor -m "Bump from gitlab to version %s"
-  git add package.json
+  #git add package.json
   application_version=$(jq -r .version package.json)
-  git commit -m "Bump from gitlab to version $application_version"
+  #git commit -m "Bump from gitlab to version $application_version"
   git remote add github git@github.com:abdoulk12/cv-with-react.git
   git fetch --all
-#  git push github
-#  docker push "aboulk12/$aplication_name:$application_version"
+  git push github
+  docker push "aboulk12/$aplication_name:$application_version"
 else
   echo "Nothing to do !"
 fi
