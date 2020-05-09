@@ -45,9 +45,10 @@ if [[ $latest_commit_message != "Bump from gitlab to version "* ]]; then
   #git add package.json
   application_version=$(jq -r .version package.json)
   #git commit -m "Bump from gitlab to version $application_version"
+  echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   git remote add github git@github.com:abdoulk12/cv-with-react.git
   git fetch --all
-  git push github
+  git push github HEAD:master
   docker push "aboulk12/$aplication_name:$application_version"
 else
   echo "Nothing to do !"
