@@ -1,12 +1,17 @@
 #!/bin/bash
 
 set -e
+cleanup_all(){
+  rm -rf ./* #cleanup the workspace!
+  rm -rfv ./.* 2>/dev/null
+  docker system prune -fa
+}
 
 latest_commit_message=$(git log -1 --pretty=%B)
 echo "$latest_commit_message"
 
 if [[ $(arch) == armv7l ]]; then 
-  [[ $latest_commit_message == "Bump from gitlab to version "* ]] && echo "nothing to do!" && exit 0
+  [[ $latest_commit_message == "Bump from gitlab to version "* ]] && echo "nothing to do!" && cleanup_all && exit 0
   aplication_name="cv-with-react-run-$(arch)"
   dockerfile="Dockerfile_run_armv7l"
 else
@@ -27,12 +32,13 @@ if [[ $(arch) != armv7l ]]; then
     sleep 10;
     echo "The docker container is not ready yet !"
   done
-echo "The docker container is ready !"
+  echo "The docker container is ready !"
 fi
 
 # Deploy the application (code from git +  react js activated in docker)
 application_current_version=$(jq -r .version package.json)
-docker build -t "aboulk12/$aplication_name:$application_current_version" -f "$dockerfile" .
+docker build -t "aboulk12/$aplication_name:latest" -f "$dockerfile" .
+docker tag "aboulk12/$aplication_name:latest" "aboulk12/$aplication_name:$application_current_version"
 [[ $(docker ps -aq -f status=running -f name=$aplication_name) ]] &&  docker stop "$aplication_name"
 [[ $(docker ps -aq -f status=exited -f name=$aplication_name) ]] && docker rm "$aplication_name"
 docker run --name "$aplication_name" -p 8080:3000 -d "aboulk12/$aplication_name:$application_current_version"
@@ -50,11 +56,10 @@ if [[ $latest_commit_message != "Bump from gitlab to version "* ]]; then
   git fetch --all
   git push github HEAD:master
   git push github --tags
+  docker push "aboulk12/$aplication_name:latest"
   docker push "aboulk12/$aplication_name:$application_current_version"
 else
   echo "Nothing to do !"
 fi
 
-rm -rf ./* #cleanup the workspace!
-rm -rfv ./.* 2>/dev/null
-docker system prune -fa
+cleanup_all
