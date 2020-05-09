@@ -56,25 +56,34 @@ export default function App() {
               {" "}
               <i className="fa fa-desktop" /> Other Interests{" "}
             </h1>
-            <h3> Ayurveda</h3>
+            <h3> Robotic</h3>
             <ul>
               <li>
-                <i className="fa fa-book" /> Meditation
+                <i className="fa fa-book" /> Create EV3 robot
               </li>
               <li>
-                <i className="fa fa-book" /> Yoga
+                <i className="fa fa-book" /> Artificial inteligence
+              </li>
+              <li>
+                <i className="fa fa-book" /> RaspberryPI for CICD
               </li>
             </ul>
             <h3>Sustainability</h3>
             <ul>
               <li>Reducing waste</li>
-              <li>Build a sustainable wardrobe</li>
+            </ul>
+            <h3>Loisir</h3>
+            <ul>
+              <li>Football</li>
+              <li>swiming</li>
+              <li>ski</li>
+              <li>cooking</li>
             </ul>
           </section>
         </section>
       </main>
       <footer className="footer">
-        <p>Paula Latorre</p>
+        <p>Abdoulaye KEITA</p>
         <i className="fa fa-facebook-square" />
         <i className="fa fa-instagram" />
         <i className="fa fa-github" />
