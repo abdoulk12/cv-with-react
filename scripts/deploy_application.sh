@@ -31,11 +31,11 @@ echo "The docker container is ready !"
 fi
 
 # Deploy the application (code from git +  react js activated in docker)
-application_version=$(jq -r .version package.json)
-docker build -t "aboulk12/$aplication_name:$application_version" -f "$dockerfile" .
+application_current_version=$(jq -r .version package.json)
+docker build -t "aboulk12/$aplication_name:$application_current_version" -f "$dockerfile" .
 [[ $(docker ps -aq -f status=running -f name=$aplication_name) ]] &&  docker stop "$aplication_name"
 [[ $(docker ps -aq -f status=exited -f name=$aplication_name) ]] && docker rm "$aplication_name"
-docker run --name "$aplication_name" -p 8080:3000 -d "aboulk12/$aplication_name:$application_version"
+docker run --name "$aplication_name" -p 8080:3000 -d "aboulk12/$aplication_name:$application_current_version"
 
 # Bump semantical version
 # Backup the application on docker hub registry
@@ -49,7 +49,7 @@ if [[ $latest_commit_message != "Bump from gitlab to version "* ]]; then
   git remote add github git@github.com:abdoulk12/cv-with-react.git
   git fetch --all
   git push github HEAD:master
-  docker push "aboulk12/$aplication_name:$application_version"
+  docker push "aboulk12/$aplication_name:$application_current_version"
 else
   echo "Nothing to do !"
 fi
