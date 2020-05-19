@@ -2,5 +2,5 @@ FROM node:14-slim
 
 # Bundle app source
 COPY . /usr/src/app
-WORKDIR /usr/src/app
-CMD npm install --save-prod && npm run build && npm install -g serve && serve -s build
+RUN cd /usr/src/app && npm install --save-prod && npm run build && npm install -g serve
+CMD cd /usr/src/app && serve -s build
