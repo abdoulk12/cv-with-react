@@ -1,4 +1,4 @@
-FROM node:14-slim@sha256:54e669f5d86e0f10324029074f7379179a628c0b2b97130f05c0f377742daadb
+FROM node:14-slim
 
 # Bundle app source
 COPY . /usr/src/app
