@@ -2,7 +2,7 @@
 
 ## GOAL
 ```The goal of this repository is to create my CV develloped with REACT and deployed automatically in production ! ```
-![Kiku](readme/img/application_flow.png)
+![Kiku](https://gitlab.com/abdoulayeke12/cv-with-react/-/raw/master/readme/img/application_flow.png)
 
 ## TECHNOLOGIES
 ```
