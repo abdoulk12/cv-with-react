@@ -42,7 +42,7 @@ docker build -t "$dockerhub_user_account/$aplication_name:latest" -f "$dockerfil
 docker tag ""$dockerhub_user_account"/$aplication_name:latest" "$dockerhub_user_account/$aplication_name:$application_current_version"
 [[ $(docker ps -aq -f status=running -f name=$aplication_name) ]] &&  docker stop "$aplication_name"
 [[ $(docker ps -aq -f status=exited -f name=$aplication_name) ]] && docker rm "$aplication_name"
-docker run --name "$aplication_name" -p 8080:5000 -d "$dockerhub_user_account/$aplication_name:$application_current_version"
+docker run --name "$aplication_name" -p 8080:5000 --restart=always -d "$dockerhub_user_account/$aplication_name:$application_current_version"
 
 # Bump semantical version
 # Backup the application on docker hub registry
