@@ -4,8 +4,14 @@ const experience = [
     startDate: "November 2015",
     endDate: "March 2020",
     title: "DevOps for Travel Intelligence at Amadeus(Nice Area, France) ",
-    description:
-      "Amadeus Travel Intelligence division brings insights and recommendations to customers, partners and travellers by relying on Big Data Technologies. \nMy purpose as a DevOps is to ensure: \n    - System stability and resilience (zabbix, elk, alerting, monitoring...) \n - Ease and reproducibility of deployment (puppet, chef...) \n - Put in place CI/CD pipelines and provide support for development and applications teams (Jenkins, git, bitbucket, artifactory...) \n - Support deployment of Hadoop Clusters (Cloudera, HDFS, Spark, Kafka, Hive, Impala, ...)",
+    description: `
+Amadeus Travel Intelligence division brings insights and recommendations to customers, partners and travellers by relying on Big Data Technologies.
+My purpose as a DevOps is to ensure: 
+  - System stability and resilience (zabbix, elk, alerting, monitoring...)
+  - Ease and reproducibility of deployment (puppet, chef...)
+  - Put in place CI/CD pipelines and provide support for development and applications teams (Jenkins, git, bitbucket, artifactory...)
+  - Support deployment of Hadoop Clusters (Cloudera, HDFS, Spark, Kafka, Hive, Impala, ...)
+    `,
     image: "./renjer.png"
   },
   {

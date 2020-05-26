@@ -7,7 +7,13 @@ function CVComponent(props) {
       <h4>
         {props.item.startDate} - {props.item.endDate}
       </h4>
-      <p>{props.item.description}</p>
+      <p
+        style={{
+          "white-space": "pre-wrap"
+        }}
+      >
+        {props.item.description}{" "}
+      </p>
       <hr />
     </div>
   );
